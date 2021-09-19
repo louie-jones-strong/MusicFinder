@@ -1,9 +1,8 @@
 const SpotifyClientId = "ff96f0cfd76e4687aad442ab530cb560";
 
 var RedirectUri = "https://louie-jones-strong.github.io/MusicFinder/";
-
 if (location.hostname === "localhost" || location.hostname === "127.0.0.1"){
-	const RedirectUri = "http://localhost:5500/index.html";
+	var RedirectUri = "http://localhost:5500/index.html";
 }
 
 
@@ -99,8 +98,24 @@ function SetupPlayer(token) {
 			}
 
 			currentTrack = state.track_window.current_track.id;
+
+			var bodyData = '';
+
+			var headerData = [
+				["Content-Type", "application/json"],
+				["Authorization", "Bearer "+token]
+			];
+
+			Get(`https://api.spotify.com/v1/tracks/${currentTrack}`, bodyData, headerData, UpdateTrackInfo);
 		}
 	});
+
+	function UpdateTrackInfo(responseText)
+	{
+		var jsonResponse = JSON.parse(responseText);
+
+		console.log(jsonResponse["album"]["images"][0]["url"]);
+	}
 
 	player.connect();
 }

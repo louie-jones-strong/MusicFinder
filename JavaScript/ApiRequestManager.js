@@ -1,19 +1,19 @@
 function Post(url, bodyData, headerData)
 {
-	SendRequest("POST", url, bodyData, headerData);
+	SendRequest("POST", url, bodyData, headerData, null);
 }
 
-function Get(url, bodyData, headerData)
+function Get(url, bodyData, headerData, onResponse=null)
 {
-	SendRequest("GET", url, bodyData, headerData);
+	SendRequest("GET", url, bodyData, headerData, onResponse);
 }
 
 function Put(url, bodyData, headerData)
 {
-	SendRequest("PUT", url, bodyData, headerData);
+	SendRequest("PUT", url, bodyData, headerData, null);
 }
 
-function SendRequest(method, url, bodyData, headerData)
+function SendRequest(method, url, bodyData, headerData, onResponse)
 {
 	var xhr = new XMLHttpRequest();
 	xhr.open(method, url);
@@ -23,11 +23,16 @@ function SendRequest(method, url, bodyData, headerData)
 	});
 
 	xhr.onreadystatechange = function () {
-		LogResponse(xhr);
+		if (xhr.readyState === 4) {
+			LogResponse(xhr);
+			if (onResponse) {
+			onResponse(xhr.responseText)
+			}
+		}
 	};
 
 	xhr.send(bodyData);
-	LogSendRequest(xhr);
+	LogSendRequest(xhr, headerData, bodyData);
 }
 
 function GenerateRandomString(length) {
@@ -39,15 +44,14 @@ function GenerateRandomString(length) {
 	return text;
 };
 
-function LogSendRequest(xhr)
+function LogSendRequest(xhr, headerData, bodyData)
 {
-	// console.log(xhr);
+	console.log(headerData);
+	console.log(bodyData);
 }
 
 function LogResponse(xhr)
 {
-	if (xhr.readyState === 4) {
-		console.log(xhr.status);
-		console.log(xhr.responseText);
-	}
+	console.log(xhr.status);
+	console.log(xhr.responseText);
 }
