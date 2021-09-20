@@ -1,4 +1,28 @@
 body{
 	background-color: #333;
 	color: white;
+	margin: 0px;
+}
+
+/* play back controls */
+#playBackControls{
+	background-color: #222;
+	display: flex;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#playBackControls-Buttons{
+	display: flex;
+	justify-content: center;
+	padding-block: 0.5em;
+}
+
+#playBackControls-Bar{
+	display: flex;
+	justify-content: center;
+	padding-block: 0.5em;
 }
