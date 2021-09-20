@@ -7,29 +7,46 @@
 	<script src="JavaScript/ApiRequestManager.js"></script>
 	<script src="JavaScript/Login.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="Styles/MusicPlayer.css">
+	<link rel="stylesheet" type="text/css" href="StyleSheets/CommonStyles/CommonStyle.css">
+	<link rel="stylesheet" type="text/css" href="StyleSheets/Components/PlayBackControls.css">
+	<link rel="stylesheet" type="text/css" href="StyleSheets/Components/SongCard.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
-<body>
 
-	<Button onclick="Login()">Login</Button>
-	<img class="music card">
-		<img id="trackImage" src=""></img>
-		<h2 id="trackTitle">Title</h2>
-		<h3 id="trackArtist">artist</h3>
+<body class="dark">
+	<div class="content">
+		<!-- Shared common Header -->
+		<div id="Header">
+			<script>$("#Header").load("SharedComponents/Header/Header.html");</script>
+		</div>
+
+
+		<div class="songCard glass neonOutline">
+			<img id="trackImage" src="">
+			<h2 id="trackTitle">Title</h2>
+			<h3 id="trackArtist">artist</h3>
+		</div>
+
+		<div id="playBackControls">
+			<div id="playBackControls-Buttons">
+				<button id="skipPrevious" class="material-icons">skip_previous</button>
+				<button id="togglePlay" class="material-icons">play_arrow</button>
+				<button id="skipNext" class="material-icons">skip_next</button>
+			</div>
+			<div id="playBackControls-Bar">
+				<div id="playBackControls-Bar-TimeElapsed">11:11</div>
+				<div> ProgressBar</div>
+				<div id="playBackControls-Bar-Duration">11:11</div>
+			</div>
+		</div>
+
 	</div>
 
-	<div id="playBackControls">
-		<div id="playBackControls-Buttons">
-			<button id="skipPrevious" class="material-icons">skip_previous</button>
-			<button id="togglePlay" class="material-icons">play_arrow</button>
-			<button id="skipNext" class="material-icons">skip_next</button>
-		</div>
-		<div id="playBackControls-Bar">
-			<div id="playBackControls-Bar-TimeElapsed">11:11</div>
-			<div> ProgressBar</div>
-			<div id="playBackControls-Bar-Duration">11:11</div>
-		</div>
+	<!-- Shared common loader -->
+	<div id="loaderHolder">
+		<script>$("#loaderHolder").load("SharedComponents/Loader/Loader.html");</script>
 	</div>
+	<script src="JavaScript/Loader.js"></script>
 </body>
 </html>

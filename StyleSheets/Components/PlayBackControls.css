@@ -1,10 +1,3 @@
-body{
-	background-color: #333;
-	color: white;
-	margin: 0px;
-}
-
-/* play back controls */
 #playBackControls{
 	background-color: #222;
 	display: flex;
