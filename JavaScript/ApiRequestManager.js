@@ -32,7 +32,7 @@ function SendRequest(method, url, bodyData, headerData, onResponse)
 	};
 
 	xhr.send(bodyData);
-	LogSendRequest(xhr, headerData, bodyData);
+	LogSendRequest(xhr, url, headerData, bodyData);
 }
 
 function GenerateRandomString(length) {
@@ -44,14 +44,12 @@ function GenerateRandomString(length) {
 	return text;
 };
 
-function LogSendRequest(xhr, headerData, bodyData)
+function LogSendRequest(xhr, url, headerData, bodyData)
 {
-	console.log(headerData);
-	console.log(bodyData);
+	console.log("Send Request", url, headerData, bodyData);
 }
 
 function LogResponse(xhr)
 {
-	console.log(xhr.status);
-	console.log(xhr.responseText);
+	console.log("Response", xhr.responseURL, xhr.status, xhr.responseText);
 }
