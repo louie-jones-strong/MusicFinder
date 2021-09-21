@@ -87,9 +87,21 @@ function SetupPlayer(token) {
 	let currentTrack = '';
 
 	player.on('player_state_changed', state => {
-		if(state != null && state.track_window.current_track.id != currentTrack ) {
+
+		if (state == null)
+		{
+			return
+		}
+
+		if (state.position != null)
+		{
+			document.getElementById('playBackControls-Bar-TimeElapsed').innerHTML = GetTimeString(state.position);
+		}
+
+		if(state.track_window.current_track.id != currentTrack ) {
 			// The track changed!
 			console.log("New Track old: " + currentTrack+ " New: " + state.track_window.current_track.id);
+			console.log(state)
 
 			if (currentTrack != '')
 			{
@@ -99,35 +111,50 @@ function SetupPlayer(token) {
 
 			currentTrack = state.track_window.current_track.id;
 
-			var bodyData = '';
 
-			var headerData = [
-				["Content-Type", "application/json"],
-				["Authorization", "Bearer "+token]
-			];
+			UpdateTrackInfo(state.track_window.previous_tracks[0], "Previous1");
+			UpdateTrackInfo(state.track_window.previous_tracks[1], "Previous2");
 
-			Get(`https://api.spotify.com/v1/tracks/${currentTrack}`, bodyData, headerData, UpdateTrackInfo);
+			UpdateTrackInfo(state.track_window.current_track, "Current");
+
+			var duration_ms = state.track_window.current_track.duration_ms;
+			document.getElementById('playBackControls-Bar-Duration').innerHTML = GetTimeString(duration_ms);
+
+			UpdateTrackInfo(state.track_window.next_tracks[0], "Next1");
+			UpdateTrackInfo(state.track_window.next_tracks[1], "Next2");
 		}
 	});
 
-	function UpdateTrackInfo(responseText)
+	function UpdateTrackInfo(track, trackId)
 	{
-		var jsonResponse = JSON.parse(responseText);
-
-		var imageUrl = jsonResponse["album"]["images"][0]["url"];
-		var songTitle = jsonResponse["name"];
-		var artistsJson = jsonResponse["artists"];
+		var imageUrl = track.album.images[0].url;
+		var songTitle = track.name;
 
 		var trackArtistsHtml = "";
-		artistsJson.forEach(artistJson => {
-			var artistName = artistJson["name"];
-			var artistUrl = artistJson["external_urls"]["spotify"];
-			trackArtistsHtml += '<a href="' + artistUrl + '" target="_blank">' + artistName + '</a>';
-		});
+		for (let index = 0; index < track.artists.length; index++)
+		{
+			const artist = track.artists[index];
 
-		document.getElementById('trackImage').src = imageUrl;
-		document.getElementById('trackTitle').innerHTML = songTitle;
-		document.getElementById('trackArtists').innerHTML = trackArtistsHtml;
+			trackArtistsHtml += '<a href="' + artist.uri + '" target="_blank">' + artist.name + '</a>';
+
+			if (index < track.artists.length-1)
+			{
+				trackArtistsHtml += ', ';
+			}
+		}
+
+		document.getElementById('trackImage_'+trackId).src = imageUrl;
+		document.getElementById('trackTitle_'+trackId).innerHTML = songTitle;
+		document.getElementById('trackArtists_'+trackId).innerHTML = trackArtistsHtml;
+	}
+
+	function GetTimeString(ms)
+	{
+		var seconds = Math.round(ms / 1000);
+		var mins = Math.floor(seconds / 60);
+		var remainingSeconds = seconds % 60;
+
+		return mins + ":" + remainingSeconds;
 	}
 
 	player.connect();
