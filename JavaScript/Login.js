@@ -114,7 +114,20 @@ function SetupPlayer(token) {
 	{
 		var jsonResponse = JSON.parse(responseText);
 
-		console.log(jsonResponse["album"]["images"][0]["url"]);
+		var imageUrl = jsonResponse["album"]["images"][0]["url"];
+		var songTitle = jsonResponse["name"];
+		var artistsJson = jsonResponse["artists"];
+
+		var trackArtistsHtml = "";
+		artistsJson.forEach(artistJson => {
+			var artistName = artistJson["name"];
+			var artistUrl = artistJson["external_urls"]["spotify"];
+			trackArtistsHtml += '<a href="' + artistUrl + '" target="_blank">' + artistName + '</a>';
+		});
+
+		document.getElementById('trackImage').src = imageUrl;
+		document.getElementById('trackTitle').innerHTML = songTitle;
+		document.getElementById('trackArtists').innerHTML = trackArtistsHtml;
 	}
 
 	player.connect();
