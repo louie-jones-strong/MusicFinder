@@ -112,16 +112,12 @@ function SetupPlayer(token) {
 			currentTrack = state.track_window.current_track.id;
 
 
-			UpdateTrackInfo(state.track_window.previous_tracks[0], "Previous1");
-			UpdateTrackInfo(state.track_window.previous_tracks[1], "Previous2");
 
 			UpdateTrackInfo(state.track_window.current_track, "Current");
 
 			var duration_ms = state.track_window.current_track.duration_ms;
 			document.getElementById('playBackControls-Bar-Duration').innerHTML = GetTimeString(duration_ms);
 
-			UpdateTrackInfo(state.track_window.next_tracks[0], "Next1");
-			UpdateTrackInfo(state.track_window.next_tracks[1], "Next2");
 		}
 	});
 
