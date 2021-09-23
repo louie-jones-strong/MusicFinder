@@ -4,12 +4,12 @@
 	<title>Music Mixer</title>
 
 	<script src="https://sdk.scdn.co/spotify-player.js"></script>
-	<script src="JavaScript/ApiRequestManager.js"></script>
+	<script src="JavaScript/Shared/ApiRequestManager.js"></script>
 	<script src="JavaScript/Login.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="StyleSheets/CommonStyles/CommonStyle.css">
-	<link rel="stylesheet" type="text/css" href="StyleSheets/Components/PlayBackControls.css">
-	<link rel="stylesheet" type="text/css" href="StyleSheets/Components/SongCard.css">
+	<link rel="stylesheet" type="text/css" href="StyleSheets/Components/playbackControls.css">
+	<link rel="stylesheet" type="text/css" href="StyleSheets/Components/TrackCard.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
@@ -21,39 +21,22 @@
 			<script>$("#Header").load("SharedComponents/Header/Header.html");</script>
 		</div>
 
-		<div id="songTimeline">
-			<!-- Current Song -->
-			<div class="songCard glass neonOutline">
-				<img id="trackImage_Current" src="">
+		<div id="trackTimeline">
 
-				<div class="songInfo">
-					<div class="songMetaData">
-						<h3 id="trackTitle_Current">Title</h3>
-						<div id="trackArtists_Current">
-							<a href="">Artist 1</a>,
-							<a href="">Artist 2</a>,
-							<a href="">Artist 3</a>
-						</div>
-					</div>
-					<button class="likeButton">
-						<img src="Assets/Images/Heart-Like.svg" alt="">
-						<img src="Assets/Images/Heart-Liked.svg" alt="">
-					</button>
-				</div>
-			</div>
 		</div>
 
-		<div id="playBackControls">
-			<div id="playBackControls-Buttons">
+		<div id="playbackControls">
+			<div id="playbackControls-Buttons">
 				<button id="skipPrevious" class="material-icons">skip_previous</button>
 				<button id="togglePlay" class="material-icons">play_arrow</button>
 				<button id="skipNext" class="material-icons">skip_next</button>
 			</div>
-			<div id="playBackControls-Bar">
-				<div id="playBackControls-Bar-TimeElapsed">11:11</div>
+			<div id="playbackControls-Bar">
+				<div id="playbackControls-Bar-TimeElapsed">11:11</div>
 				<div> ProgressBar</div>
-				<div id="playBackControls-Bar-Duration">11:11</div>
+				<div id="playbackControls-Bar-Duration">11:11</div>
 			</div>
+			<script src="JavaScript/Components/playbackControls.js"></script>
 		</div>
 
 	</div>
@@ -62,6 +45,6 @@
 	<div id="loaderHolder">
 		<script>$("#loaderHolder").load("SharedComponents/Loader/Loader.html");</script>
 	</div>
-	<script src="JavaScript/Loader.js"></script>
+	<script src="JavaScript/Shared/Loader.js"></script>
 </body>
 </html>

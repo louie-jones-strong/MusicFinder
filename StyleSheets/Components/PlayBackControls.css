@@ -1,4 +1,4 @@
-#playBackControls{
+#playbackControls{
 	background-color: #222;
 	display: flex;
 	position: fixed;
@@ -8,13 +8,13 @@
 	flex-direction: column;
 }
 
-#playBackControls-Buttons{
+#playbackControls-Buttons{
 	display: flex;
 	justify-content: center;
 	padding-block: 0.5em;
 }
 
-#playBackControls-Bar{
+#playbackControls-Bar{
 	display: flex;
 	justify-content: center;
 	padding-block: 0.5em;

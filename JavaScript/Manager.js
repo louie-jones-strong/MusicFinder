@@ -1,37 +1,3 @@
-const SpotifyClientId = "ff96f0cfd76e4687aad442ab530cb560";
-
-var RedirectUri = "https://louie-jones-strong.github.io/MusicFinder/";
-if (location.hostname === "localhost" || location.hostname === "127.0.0.1"){
-	var RedirectUri = "http://localhost:5500/index.html";
-}
-
-
-const Scopes = "playlist-read-private playlist-read-collaborative user-read-private user-read-email user-read-playback-state user-modify-playback-state user-read-currently-playing user-library-read user-read-playback-position user-read-recently-played user-top-read app-remote-control streaming user-follow-read"
-
-function Login() {
-	let popup = window.open(
-		`https://accounts.spotify.com/authorize
-		?client_id=${SpotifyClientId}
-		&response_type=token
-		&redirect_uri=${RedirectUri}` +
-		(Scopes ? '&scope=' + encodeURIComponent(Scopes) : '')+
-		`&show_dialog=true`,
-		'Login with Spotify',
-		'width=500,height=700')
-
-	window.spotifyCallback = (token) => {
-		popup.close();
-		SetupPlayer(token);
-	}
-}
-
-window.onSpotifyWebPlaybackSDKReady = () => {
-	token = window.location.hash.substr(1).split('&')[0].split("=")[1]
-
-	if (token) {
-		window.opener.spotifyCallback(token)
-	}
-}
 
 function SetupPlayer(token) {
 
@@ -99,25 +65,20 @@ function SetupPlayer(token) {
 			currentTrack = state.track_window.current_track.id;
 
 
-
-			UpdateTrackInfo(state.track_window.current_track, "Current");
-
 			var duration_ms = state.track_window.current_track.duration_ms;
 			document.getElementById('playbackControls-Bar-Duration').innerHTML = GetTimeString(duration_ms);
 
 		}
 	});
 
-
-	function GetTimeString(ms)
-	{
-		var seconds = Math.round(ms / 1000);
-		var mins = Math.floor(seconds / 60);
-		var remainingSeconds = seconds % 60;
-
-		return mins + ":" + remainingSeconds;
-	}
-
 	player.connect();
 }
 
+function GetTimeString(ms)
+{
+	var seconds = Math.round(ms / 1000);
+	var mins = Math.floor(seconds / 60);
+	var remainingSeconds = seconds % 60;
+
+	return mins + ":" + remainingSeconds;
+}
