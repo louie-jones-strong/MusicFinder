@@ -1,9 +1,10 @@
+body{
+	--PlaybackControlsHeight: 100px;
+}
+
 #playbackControls{
 	background-color: #222;
 	display: flex;
-	position: fixed;
-	bottom: 0px;
-	width: 100%;
 	justify-content: center;
 	flex-direction: column;
 }
@@ -18,4 +19,9 @@
 	display: flex;
 	justify-content: center;
 	padding-block: 0.5em;
+}
+
+#playbackControls-Bar-ProggressBar{
+	width: 50%;
+	margin-inline: 0.5em;
 }

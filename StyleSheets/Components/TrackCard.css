@@ -8,6 +8,7 @@
 	overflow: hidden;
 	position: relative;
 	text-decoration: none;
+	width: max-content;
 }
 
 .trackCard > img,
@@ -17,19 +18,18 @@
 	height: auto;
 	overflow: hidden;
 	object-fit: cover;
+	max-width: 600px;
+	max-height: 600px;
 }
 
-.trackCard p{
-	padding-left: 10px;
-	padding-right: 10px;
-}
 
-.trackCard h3{
+.trackTitle{
 	margin-top: 0.1em;
 	margin-bottom: 0.1em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
 }
 
-.likeButton{
-	width: 2em;
-	height: 2em;
+.trackArtists{
+	padding: 1em;
 }

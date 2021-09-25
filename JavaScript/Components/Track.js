@@ -10,8 +10,8 @@ class Track
 		trackHtml += '	<img id="trackImage' + this.TackUiId + '" src="Assets/Images/placeholder.jpg">';
 		trackHtml += '	<div class="trackInfo">';
 		trackHtml += '		<div class="trackMetaData">';
-		trackHtml += '			<h3 id="trackTitle' + this.TackUiId + '">Track Title</h3>';
-		trackHtml += '			<div id="trackArtists' + this.TackUiId + '">';
+		trackHtml += '			<h3 class="trackTitle" id="trackTitle' + this.TackUiId + '">Track Title</h3>';
+		trackHtml += '			<div class="trackArtists" id="trackArtists' + this.TackUiId + '">';
 		trackHtml += '				<a href="">Artist 1</a>,';
 		trackHtml += '				<a href="">Artist 2</a>,';
 		trackHtml += '				<a href="">Artist 3</a>';
@@ -20,7 +20,7 @@ class Track
 		trackHtml += '	</div>';
 		trackHtml += '</div>';
 
-		document.getElementById(parent).innerHTML = trackHtml;
+		document.getElementById(parent).innerHTML += trackHtml;
 	}
 
 	UpdateTrackInfo(track)

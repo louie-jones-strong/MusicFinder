@@ -1,13 +1,13 @@
 
 // controls
 document.getElementById('skipPrevious').onclick = function() {
-	player.previousTrack();
+	SpotifyPlayer.previousTrack();
 };
 
 document.getElementById('togglePlay').onclick = function() {
-	player.togglePlay();
+	SpotifyPlayer.togglePlay();
 };
 
 document.getElementById('skipNext').onclick = function() {
-	player.nextTrack();
+	SpotifyPlayer.nextTrack();
 };
