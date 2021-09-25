@@ -87,12 +87,17 @@ section{
 				0 0 3px 0 var(--ColourAccent);
 }
 
-.neonOutline:hover, .neonOutline:focus{
+button.neonOutline, button.neonOutline{
+	transition: box-shadow 0.3s;
+}
+
+button.neonOutline:hover, button.neonOutline:focus{
 	box-shadow: 0.125em 0.125em 0.25em 0 rgba(0,0,0,50%),
 				0 0 2em 0 var(--ColourAccent),
 				-0.125em -0.125em 0.125em 0 var(--ColourAccent),
 				0 0 3px 0 var(--ColourAccent);
 }
+
 
 .glass{
 	background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));

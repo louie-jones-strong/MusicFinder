@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Music Mixer</title>
+	<script src="JavaScript/Shared/Utilities.js"></script>
+	<script src="JavaScript/Login.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="StyleSheets/CommonStyles/CommonStyle.css">
+	<link rel="stylesheet" type="text/css" href="StyleSheets/LoginPage.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body class="dark">
+	<div class="content">
+
+		<div class="loginPopup glass neonOutline rounded">
+			<h2>Login</h2>
+			<p>To use this website you need to login.</p>
+			<button class="loginButton neonOutline" onclick="Login()">Login</button>
+		</div>
+	</div>
+
+	<!-- Shared common loader -->
+	<div id="loaderHolder">
+		<script>$("#loaderHolder").load("SharedComponents/Loader/Loader.html");</script>
+	</div>
+	<script src="JavaScript/Shared/Loader.js"></script>
+</body>
+</html>

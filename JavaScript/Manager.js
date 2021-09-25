@@ -1,5 +1,22 @@
 
-function SetupPlayer(token) {
+var hostname = "https://louie-jones-strong.github.io/MusicFinder/"
+if (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+{
+	var hostname = "http://localhost:5500/";
+}
+
+var loginUri = hostname + "login.html";
+
+var parameterDict = GetUrlParameters();
+
+if (!("access_token" in parameterDict))
+{
+	window.location.replace(loginUri);
+}
+
+window.onSpotifyWebPlaybackSDKReady = () => {
+
+	var token = parameterDict["access_token"];
 
 	const player = new Spotify.Player({
 		name: 'Music Mixer',
@@ -72,13 +89,4 @@ function SetupPlayer(token) {
 	});
 
 	player.connect();
-}
-
-function GetTimeString(ms)
-{
-	var seconds = Math.round(ms / 1000);
-	var mins = Math.floor(seconds / 60);
-	var remainingSeconds = seconds % 60;
-
-	return mins + ":" + remainingSeconds;
 }

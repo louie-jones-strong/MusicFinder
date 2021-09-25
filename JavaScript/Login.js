@@ -1,14 +1,19 @@
 const SpotifyClientId = "ff96f0cfd76e4687aad442ab530cb560";
 
-var RedirectUri = "https://louie-jones-strong.github.io/MusicFinder/";
-if (location.hostname === "localhost" || location.hostname === "127.0.0.1"){
-	var RedirectUri = "http://localhost:5500/index.html";
+var hostname = "https://louie-jones-strong.github.io/MusicFinder/"
+if (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+{
+	var hostname = "http://localhost:5500/";
 }
 
+var RedirectUri = hostname + "login.html";
+
+var returnUri = hostname + "index.html";
 
 const Scopes = "playlist-read-private playlist-read-collaborative user-read-private user-read-email user-read-playback-state user-modify-playback-state user-read-currently-playing user-library-read user-read-playback-position user-read-recently-played user-top-read app-remote-control streaming user-follow-read"
 
-function Login() {
+function Login()
+{
 	let popup = window.open(
 		`https://accounts.spotify.com/authorize
 		?client_id=${SpotifyClientId}
@@ -17,107 +22,17 @@ function Login() {
 		(Scopes ? '&scope=' + encodeURIComponent(Scopes) : '')+
 		`&show_dialog=true`,
 		'Login with Spotify',
-		'width=500,height=700')
+		'width=500,height=700');
 
-	window.spotifyCallback = (token) => {
-		popup.close();
-		SetupPlayer(token);
-	}
+	window.AuthenticateCallback = (parameterDict) => {
+			popup.close();
+			window.location.replace(returnUri + "?access_token="+parameterDict["access_token"]);
+		}
 }
 
-window.onSpotifyWebPlaybackSDKReady = () => {
-	token = window.location.hash.substr(1).split('&')[0].split("=")[1]
+var parameterDict = GetUrlParameters();
 
-	if (token) {
-		window.opener.spotifyCallback(token)
-	}
+if (parameterDict["access_token"] && window.opener)
+{
+	window.opener.AuthenticateCallback(parameterDict);
 }
-
-function SetupPlayer(token) {
-
-	const player = new Spotify.Player({
-		name: 'Music Mixer',
-		getOAuthToken: cb => { cb(token); },
-		volume: 0.5
-	});
-
-	// Ready
-	player.addListener('ready', ({ device_id }) => {
-		console.log('Ready with Device ID', device_id);
-
-		var bodyData = '{"device_ids": ["'+device_id+'"]}';
-
-		var headerData = [
-			["Content-Type", "application/json"],
-			["Authorization", "Bearer "+token]
-		];
-		Put("https://api.spotify.com/v1/me/player", bodyData, headerData);
-	});
-
-	player.addListener('not_ready', ({ device_id }) => {
-		console.log('Device ID has gone offline', device_id);
-	});
-
-	player.addListener('initialization_error', ({ message }) => {
-		console.error(message);
-	});
-
-	player.addListener('authentication_error', ({ message }) => {
-		console.error(message);
-	});
-
-	player.addListener('account_error', ({ message }) => {
-		console.error(message);
-	});
-
-	// track changed
-	let currentTrack = '';
-
-	player.on('player_state_changed', state => {
-
-		if (state == null)
-		{
-			return
-		}
-
-		if (state.position != null)
-		{
-			document.getElementById('playbackControls-Bar-TimeElapsed').innerHTML = GetTimeString(state.position);
-		}
-
-		if(state.track_window.current_track.id != currentTrack ) {
-			// The track changed!
-			console.log("New Track old: " + currentTrack+ " New: " + state.track_window.current_track.id);
-			console.log(state)
-
-			if (currentTrack != '')
-			{
-				var audio = new Audio('Assets/Sounds/Ding.wav');
-				audio.play();
-			}
-
-			currentTrack = state.track_window.current_track.id;
-
-
-
-			UpdateTrackInfo(state.track_window.current_track, "Current");
-
-			var duration_ms = state.track_window.current_track.duration_ms;
-			document.getElementById('playbackControls-Bar-Duration').innerHTML = GetTimeString(duration_ms);
-
-		}
-	});
-
-
-	function GetTimeString(ms)
-	{
-		var seconds = Math.round(ms / 1000);
-		var mins = Math.floor(seconds / 60);
-		var remainingSeconds = seconds % 60;
-
-		return mins + ":" + remainingSeconds;
-	}
-
-	player.connect();
-}
-
