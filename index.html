@@ -7,6 +7,7 @@
 	<script src="JavaScript/Shared/Utilities.js"></script>
 	<script src="https://sdk.scdn.co/spotify-player.js"></script>
 	<script src="JavaScript/Components/Track.js"></script>
+	<script src="JavaScript/Components/PlaybackControls.js"></script>
 	<script src="JavaScript/Manager.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="StyleSheets/CommonStyles/CommonStyle.css">
@@ -35,16 +36,15 @@
 
 		<div class="glass" id="playbackControls">
 			<div id="playbackControls-Buttons">
-				<button id="skipPrevious" class="material-icons">skip_previous</button>
-				<button id="togglePlay" class="material-icons">play_arrow</button>
-				<button id="skipNext" class="material-icons">skip_next</button>
+				<button id="skipPrevious" class="material-icons" onclick="SkipPrevious()">skip_previous</button>
+				<button id="togglePlay" class="material-icons" onclick="TogglePlay()">play_arrow</button>
+				<button id="skipNext" class="material-icons" onclick="SkipNext()">skip_next</button>
 			</div>
 			<div id="playbackControls-Bar">
 				<div id="playbackControls-Bar-TimeElapsed">11:11</div>
 				<input id="playbackControls-Bar-ProgressBar" type="range" min="0" max="90" value="30">
 				<div id="playbackControls-Bar-Duration">11:11</div>
 			</div>
-			<script src="JavaScript/Components/playbackControls.js"></script>
 		</div>
 
 	</div>

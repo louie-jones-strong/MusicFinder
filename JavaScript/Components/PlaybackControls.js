@@ -1,24 +1,54 @@
 
-
-function SetPlaybackState(paused)
+class PlaybackControls
 {
-	var stateIcon = "pause";
-	if (paused)
+
+	constructor()
 	{
-		stateIcon = "play_arrow";
+		this.Paused = false;
+		this.SongStartTime = Date.now();
+		this.PlaybackSpeed = 1;
 	}
-	document.getElementById('togglePlay').innerHTML = stateIcon;
+
+	SetElapsedTime(elapsedTime)
+	{
+		this.SongStartTime = Date.now() - elapsedTime;
+		UpdateElapsedTime();
+	}
+
+	SetPlaybackState(paused)
+	{
+		this.Paused = paused;
+
+		var stateIcon = "pause";
+		if (this.Paused)
+		{
+			stateIcon = "play_arrow";
+		}
+
+		document.getElementById('togglePlay').innerHTML = stateIcon;
+	}
+}
+
+function UpdateElapsedTime()
+{
+	var elapsedTime = Date.now() - Controls.SongStartTime;
+	document.getElementById('playbackControls-Bar-TimeElapsed').innerHTML = GetTimeString(elapsedTime);
+
+	if (!Controls.Paused)
+	{
+		setTimeout(UpdateElapsedTime, 100);
+	}
 }
 
 // controls
-document.getElementById('skipPrevious').onclick = function() {
+function PreviousTrack() {
 	SpotifyPlayer.previousTrack();
-};
+}
 
-document.getElementById('togglePlay').onclick = function() {
+function TogglePlay() {
 	SpotifyPlayer.togglePlay();
-};
+}
 
-document.getElementById('skipNext').onclick = function() {
+function SkipNext() {
 	SpotifyPlayer.nextTrack();
-};
+}

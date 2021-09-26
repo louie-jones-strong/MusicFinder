@@ -21,12 +21,12 @@ else if ("expires_at" in parameterDict)
 	setTimeout(TokenExpired, expiresIn * 1000);
 }
 
-
 function TokenExpired()
 {
 	window.location.replace(loginUri);
 }
 
+var Controls = new PlaybackControls();
 var SpotifyPlayer = null;
 var TrackList = [];
 
@@ -83,17 +83,18 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
 		if (state == null)
 		{
-			return
+			return;
 		}
 
 		if (state.position != null)
 		{
-			document.getElementById('playbackControls-Bar-TimeElapsed').innerHTML = GetTimeString(state.position);
+			Controls.SetElapsedTime(state.position);
 		}
 
-		SetPlaybackState(state.paused);
+		Controls.SetPlaybackState(state.paused);
 
-		if(state.track_window.current_track.id != currentTrack ) {
+		if(state.track_window.current_track.id != currentTrack)
+		{
 			// The track changed!
 			console.log("New Track old: " + currentTrack+ " New: " + state.track_window.current_track.id);
 			console.log(state)
