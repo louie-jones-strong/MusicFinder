@@ -4,6 +4,11 @@ function GetTimeString(ms)
 	var mins = Math.floor(seconds / 60);
 	var remainingSeconds = seconds % 60;
 
+	if (remainingSeconds < 10)
+	{
+		remainingSeconds = "0"+remainingSeconds;
+	}
+
 	return mins + ":" + remainingSeconds;
 }
 
