@@ -91,6 +91,8 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 			document.getElementById('playbackControls-Bar-TimeElapsed').innerHTML = GetTimeString(state.position);
 		}
 
+		SetPlaybackState(state.paused);
+
 		if(state.track_window.current_track.id != currentTrack ) {
 			// The track changed!
 			console.log("New Track old: " + currentTrack+ " New: " + state.track_window.current_track.id);
