@@ -1,36 +1,37 @@
+body{
+	overflow: hidden;
+}
+
 
 .content{
 	display: grid;
 	height: 100vh;
 	grid-template-columns: var(--SideBarWidth) 1fr 1fr;
 	grid-template-rows: var(--HeaderHeight) 1fr var(--PlaybackControlsHeight);
+
+	grid-template-areas:
+		"header header header"
+		"sideBar trackTimeline trackInfo"
+		"sideBar trackTimeline playbackControls";
 }
 
 
-@media only screen and (min-width: 1201px){
-	.content{
-		grid-template-areas:
-			"header header header"
-			"sideBar trackTimeline trackInfo"
-			"sideBar trackTimeline playbackControls";
-	}
-}
 
 @media only screen and (min-width: 501px) and (max-width: 1200px){
 	.content{
 		grid-template-areas:
-				"header header header"
-				"sideBar trackTimeline trackTimeline"
-				"playbackControls playbackControls playbackControls";
+			"header header header"
+			"sideBar trackTimeline trackTimeline"
+			"playbackControls playbackControls playbackControls";
 	}
 }
 
 @media only screen and (max-width: 500px){
 	.content{
 		grid-template-areas:
-				"header header header"
-				"trackTimeline trackTimeline trackTimeline"
-				"playbackControls playbackControls playbackControls";
+			"header header header"
+			"trackTimeline trackTimeline trackTimeline"
+			"playbackControls playbackControls playbackControls";
 	}
 }
 

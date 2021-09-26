@@ -25,24 +25,31 @@ class Track
 
 	UpdateTrackInfo(track)
 	{
-		var imageUrl = track.album.images[0].url;
-		var trackTitle = track.name;
-
-		var trackArtistsHtml = "";
-		for (let index = 0; index < track.artists.length; index++)
+		if (track == null)
 		{
-			const artist = track.artists[index];
 
-			trackArtistsHtml += '<a href="' + artist.uri + '" target="_blank">' + artist.name + '</a>';
-
-			if (index < track.artists.length-1)
-			{
-				trackArtistsHtml += ', ';
-			}
 		}
+		else
+		{
+			var imageUrl = track.album.images[0].url;
+			var trackTitle = track.name;
 
-		document.getElementById('trackImage' + this.TackUiId).src = imageUrl;
-		document.getElementById('trackTitle' + this.TackUiId).innerHTML = trackTitle;
-		document.getElementById('trackArtists' + this.TackUiId).innerHTML = trackArtistsHtml;
+			var trackArtistsHtml = "";
+			for (let index = 0; index < track.artists.length; index++)
+			{
+				const artist = track.artists[index];
+
+				trackArtistsHtml += '<a href="' + artist.uri + '" target="_blank">' + artist.name + '</a>';
+
+				if (index < track.artists.length-1)
+				{
+					trackArtistsHtml += ', ';
+				}
+			}
+
+			document.getElementById('trackImage' + this.TackUiId).src = imageUrl;
+			document.getElementById('trackTitle' + this.TackUiId).innerHTML = trackTitle;
+			document.getElementById('trackArtists' + this.TackUiId).innerHTML = trackArtistsHtml;
+		}
 	}
 }

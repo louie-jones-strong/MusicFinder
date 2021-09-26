@@ -26,7 +26,11 @@ function Login()
 
 	window.AuthenticateCallback = (parameterDict) => {
 			popup.close();
-			window.location.replace(returnUri + "?access_token="+parameterDict["access_token"]);
+
+			var newUrl = returnUri + "?";
+			newUrl += "access_token=" + parameterDict["access_token"];
+			newUrl += "&expires_at=" + Math.floor((Date.now() / 1000) + parseInt(parameterDict["expires_in"]));
+			window.location.replace(newUrl);
 		}
 }
 

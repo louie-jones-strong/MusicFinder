@@ -23,9 +23,9 @@ function GetUrlParameters()
 	{
 		var parameterStringsList = parameterStrings[1].split('&');
 
-		for (let index = 0; index < parameterStrings.length; index++)
+		for (let index = 0; index < parameterStringsList.length; index++)
 		{
-			const parameterString = parameterStrings[index];
+			const parameterString = parameterStringsList[index];
 			var kvp = parameterString.split("=");
 			var key = kvp[0];
 			var value = kvp[1];

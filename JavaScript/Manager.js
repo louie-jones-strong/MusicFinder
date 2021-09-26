@@ -15,7 +15,17 @@ if (!("access_token" in parameterDict))
 	// go to the login screen
 	window.location.replace(loginUri);
 }
+else if ("expires_at" in parameterDict)
+{
+	var expiresIn = parseInt(parameterDict["expires_at"]) - (Date.now() / 1000);
+	setTimeout(TokenExpired, expiresIn * 1000);
+}
 
+
+function TokenExpired()
+{
+	window.location.replace(loginUri);
+}
 
 var SpotifyPlayer = null;
 var TrackList = [];

@@ -3,7 +3,6 @@ body{
 }
 
 #playbackControls{
-	background-color: #222;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -21,7 +20,29 @@ body{
 	padding-block: 0.5em;
 }
 
-#playbackControls-Bar-ProggressBar{
+#playbackControls-Bar-ProgressBar{
+	/* -webkit-appearance: none; */
+	outline: none;
+	cursor: pointer;
 	width: 50%;
 	margin-inline: 0.5em;
+
+	--Height: 8px;
+
+	height: var(--Height);
+	border-radius: calc(var(--Height) / 2);
+
+	background: #111;
+	/* overflow: hidden; */
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
 }
+
+/* #playbackControls-Bar-ProgressBar::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: calc(var(--Height) * 2);
+	height: calc(var(--Height) * 2);
+	border-radius: 50%;
+	background: #00fd0a;
+	border: 4px solid #333;
+	box-shadow: calc(-1000px - 5px) 0 0 1000px #00fd0a;
+} */
