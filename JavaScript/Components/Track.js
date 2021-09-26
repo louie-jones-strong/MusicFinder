@@ -28,9 +28,13 @@ class Track
 		if (track == null)
 		{
 
+			document.getElementById("track" + this.TackUiId).classList.add("hide");
 		}
 		else
 		{
+
+			document.getElementById("track" + this.TackUiId).classList.remove("hide");
+
 			var imageUrl = track.album.images[0].url;
 			var trackTitle = track.name;
 
