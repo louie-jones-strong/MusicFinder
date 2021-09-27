@@ -27,6 +27,7 @@ function TokenExpired()
 }
 
 var Controls = new PlaybackControls();
+var CurrentTrackInfo = new TrackInfo();
 var SpotifyPlayer = null;
 var TrackList = [];
 
@@ -109,13 +110,15 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
 
 			var duration_ms = state.track_window.current_track.duration_ms;
-			document.getElementById('playbackControls-Bar-Duration').innerHTML = GetTimeString(duration_ms);
+			Controls.SetDuration(duration_ms);
 
 			TrackList[0].UpdateTrackInfo(state.track_window.previous_tracks[0]);
 			TrackList[1].UpdateTrackInfo(state.track_window.previous_tracks[1]);
 			TrackList[2].UpdateTrackInfo(state.track_window.current_track);
 			TrackList[3].UpdateTrackInfo(state.track_window.next_tracks[0]);
 			TrackList[4].UpdateTrackInfo(state.track_window.next_tracks[1]);
+
+			CurrentTrackInfo.UpdateTrackInfo(state.track_window.current_track);
 		}
 	});
 

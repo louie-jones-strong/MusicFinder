@@ -9,9 +9,9 @@ class PlaybackControls
 		this.PlaybackSpeed = 1;
 	}
 
-	SetElapsedTime(elapsedTime)
+	SetElapsedTime(elapsedTimeMs)
 	{
-		this.SongStartTime = Date.now() - elapsedTime;
+		this.SongStartTime = Date.now() - elapsedTimeMs;
 		UpdateElapsedTime();
 	}
 
@@ -27,12 +27,21 @@ class PlaybackControls
 
 		document.getElementById('togglePlay').innerHTML = stateIcon;
 	}
+
+	SetDuration(durationMs)
+	{
+		var durationSecs = durationMs / 1000
+		document.getElementById('playbackControls-Bar-ProgressBar').max = durationSecs;
+		document.getElementById('playbackControls-Bar-Duration').innerHTML = GetTimeString(durationMs);
+	}
 }
 
 function UpdateElapsedTime()
 {
-	var elapsedTime = Date.now() - Controls.SongStartTime;
-	document.getElementById('playbackControls-Bar-TimeElapsed').innerHTML = GetTimeString(elapsedTime);
+	var elapsedTimeMs = Date.now() - Controls.SongStartTime;
+
+	document.getElementById('playbackControls-Bar-TimeElapsed').innerHTML = GetTimeString(elapsedTimeMs);
+	document.getElementById('playbackControls-Bar-ProgressBar').value = elapsedTimeMs / 1000
 
 	if (!Controls.Paused)
 	{
