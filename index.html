@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Music Mixer</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
 
 	<script src="JavaScript/Shared/ApiRequestManager.js"></script>
 	<script src="JavaScript/Shared/Utilities.js"></script>
@@ -44,6 +45,18 @@
 				<div id="playbackControls-Bar-TimeElapsed">11:11</div>
 				<input id="playbackControls-Bar-ProgressBar" type="range" min="0" max="90" value="30">
 				<div id="playbackControls-Bar-Duration">11:11</div>
+			</div>
+		</div>
+
+		<div id="trackInfo" class="glass">
+			<img id="trackInfoImage" src="Assets/Images/placeholder.jpg">
+			<div class="trackMetaData">
+				<h3 class="trackTitle" id="trackInfoTitle">Track Title</h3>
+				<div class="trackArtists" id="trackInfoArtists">
+					<a href="">Artist 1</a>,
+					<a href="">Artist 2</a>,
+					<a href="">Artist 3</a>
+				</div>
 			</div>
 		</div>
 

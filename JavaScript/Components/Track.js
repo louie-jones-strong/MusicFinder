@@ -6,16 +6,14 @@ class Track
 
 		var trackHtml = '';
 		trackHtml += '<!-- ' + this.TackUiId + ' Track -->';
-		trackHtml += '<div id="track' + this.TackUiId + '" class="trackCard glass neonOutline">';
+		trackHtml += '<div id="track' + this.TackUiId + '" class="trackCard glass neonOutline hide">';
 		trackHtml += '	<img id="trackImage' + this.TackUiId + '" src="Assets/Images/placeholder.jpg">';
-		trackHtml += '	<div class="trackInfo">';
-		trackHtml += '		<div class="trackMetaData">';
-		trackHtml += '			<h3 class="trackTitle" id="trackTitle' + this.TackUiId + '">Track Title</h3>';
-		trackHtml += '			<div class="trackArtists" id="trackArtists' + this.TackUiId + '">';
-		trackHtml += '				<a href="">Artist 1</a>,';
-		trackHtml += '				<a href="">Artist 2</a>,';
-		trackHtml += '				<a href="">Artist 3</a>';
-		trackHtml += '			</div>';
+		trackHtml += '	<div class="trackMetaData">';
+		trackHtml += '		<h3 class="trackTitle" id="trackTitle' + this.TackUiId + '">Track Title</h3>';
+		trackHtml += '		<div class="trackArtists" id="trackArtists' + this.TackUiId + '">';
+		trackHtml += '			<a href="">Artist 1</a>,';
+		trackHtml += '			<a href="">Artist 2</a>,';
+		trackHtml += '			<a href="">Artist 3</a>';
 		trackHtml += '		</div>';
 		trackHtml += '	</div>';
 		trackHtml += '</div>';
