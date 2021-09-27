@@ -6,7 +6,7 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1")
 	var hostname = "http://localhost:5500/";
 }
 
-var RedirectUri = hostname + "login.html";
+var RedirectUri = hostname + "Login.html";
 
 var returnUri = hostname + "index.html";
 
