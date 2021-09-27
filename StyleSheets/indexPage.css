@@ -24,6 +24,10 @@ body{
 			"sideBar trackTimeline trackTimeline"
 			"playbackControls playbackControls playbackControls";
 	}
+
+	#trackInfo{
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 600px){
@@ -32,6 +36,14 @@ body{
 			"header header header"
 			"trackTimeline trackTimeline trackTimeline"
 			"playbackControls playbackControls playbackControls";
+	}
+
+	#trackInfo{
+		display: none;
+	}
+
+	#sideBar{
+		display: none;
 	}
 }
 
