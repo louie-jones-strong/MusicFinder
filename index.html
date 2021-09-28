@@ -10,11 +10,13 @@
 	<script src="JavaScript/Components/Track.js"></script>
 	<script src="JavaScript/Components/TrackInfo.js"></script>
 	<script src="JavaScript/Components/PlaybackControls.js"></script>
+	<script src="JavaScript/Components/NavSideBar.js"></script>
 	<script src="JavaScript/Manager.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="StyleSheets/CommonStyles/CommonStyle.css">
 	<link rel="stylesheet" type="text/css" href="StyleSheets/Components/PlaybackControls.css">
 	<link rel="stylesheet" type="text/css" href="StyleSheets/Components/SideBar.css">
+	<link rel="stylesheet" type="text/css" href="StyleSheets/Components/TrackInfo.css">
 	<link rel="stylesheet" type="text/css" href="StyleSheets/Components/TrackCard.css">
 	<link rel="stylesheet" type="text/css" href="StyleSheets/indexPage.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -28,8 +30,11 @@
 			<script>$("#Header").load("SharedComponents/Header/Header.html");</script>
 		</div>
 
-		<div id="sideBar">
-
+		<div class="glass" id="sideBar">
+			<img id="userLogo" src="Assets/Images/placeholder.jpg" alt="User Logo">
+			<button onclick="" type="button">
+				<i class="material-icons">settings</i>
+			</button>
 		</div>
 
 		<div id="trackTimeline">

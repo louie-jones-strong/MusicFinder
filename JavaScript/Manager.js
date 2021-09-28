@@ -26,8 +26,10 @@ function TokenExpired()
 	window.location.replace(loginUri);
 }
 
+var token = parameterDict["access_token"];
 var Controls = new PlaybackControls();
 var CurrentTrackInfo = new TrackInfo();
+var SideBar = new NavSideBar();
 var SpotifyPlayer = null;
 var TrackList = [];
 
@@ -40,12 +42,9 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 	TrackList.push(new Track("trackTimeline", "track3"));
 	TrackList.push(new Track("trackTimeline", "track4"));
 
-	var token = parameterDict["access_token"];
-
 	SpotifyPlayer = new Spotify.Player({
 		name: 'Music Mixer',
-		getOAuthToken: cb => { cb(token); },
-		volume: 0.5
+		getOAuthToken: cb => { cb(token); }
 	});
 
 	// Ready
