@@ -2,10 +2,16 @@ class TrackInfo
 {
 	constructor()
 	{
+		this.LikeButton = null;
 	}
 
 	UpdateTrackInfo(track)
 	{
+		if (this.LikeButton == null)
+		{
+			this.LikeButton = new LikeButton("trackInfo", "trackInfo");
+		}
+
 		if (track == null)
 		{
 

@@ -1,6 +1,6 @@
-function Post(url, bodyData, headerData)
+function Post(url, bodyData, headerData, onResponse=null)
 {
-	SendRequest("POST", url, bodyData, headerData, null);
+	SendRequest("POST", url, bodyData, headerData, onResponse);
 }
 
 function Get(url, bodyData, headerData, onResponse=null)
@@ -8,9 +8,14 @@ function Get(url, bodyData, headerData, onResponse=null)
 	SendRequest("GET", url, bodyData, headerData, onResponse);
 }
 
-function Put(url, bodyData, headerData)
+function Put(url, bodyData, headerData, onResponse=null)
 {
-	SendRequest("PUT", url, bodyData, headerData, null);
+	SendRequest("PUT", url, bodyData, headerData, onResponse);
+}
+
+function Delete(url, bodyData, headerData, onResponse=null)
+{
+	SendRequest("DELETE", url, bodyData, headerData, onResponse);
 }
 
 function SendRequest(method, url, bodyData, headerData, onResponse)
@@ -32,7 +37,9 @@ function SendRequest(method, url, bodyData, headerData, onResponse)
 	};
 
 	xhr.send(bodyData);
-	LogSendRequest(xhr, url, headerData, bodyData);
+
+	console.log("Send "+method+" Request", url, headerData, bodyData);
+
 }
 
 function GenerateRandomString(length) {
@@ -43,11 +50,6 @@ function GenerateRandomString(length) {
 	}
 	return text;
 };
-
-function LogSendRequest(xhr, url, headerData, bodyData)
-{
-	console.log("Send Request", url, headerData, bodyData);
-}
 
 function LogResponse(xhr)
 {

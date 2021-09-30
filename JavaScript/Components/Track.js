@@ -19,6 +19,8 @@ class Track
 		trackHtml += '</div>';
 
 		document.getElementById(parent).innerHTML += trackHtml;
+
+		this.LikeButton = new LikeButton('track' + this.TackUiId, this.TackUiId);
 	}
 
 	UpdateTrackInfo(track)
@@ -30,13 +32,13 @@ class Track
 		}
 		else
 		{
-
+			this.LikeButton.UpdateTrack(track.id);
 			document.getElementById("track" + this.TackUiId).classList.remove("hide");
 
 			var imageUrl = track.album.images[0].url;
 			var trackTitle = track.name;
 
-			var trackArtistsHtml = "";
+			var trackArtistsHtml = "By: ";
 			for (let index = 0; index < track.artists.length; index++)
 			{
 				const artist = track.artists[index];
