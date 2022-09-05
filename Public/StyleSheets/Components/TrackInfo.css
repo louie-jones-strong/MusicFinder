@@ -1,0 +1,17 @@
+#trackInfo{
+	padding: 3em;
+	text-align: center;
+}
+
+#trackInfoImageHolder{
+
+	height: 66%;
+	width: 100%;
+}
+
+#trackInfoImage{
+
+	width:100%;
+    height:100%;
+	object-fit: contain;
+}

@@ -1,0 +1,19 @@
+
+.holder{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: calc(100vh - 2em);
+}
+
+.loginPopup{
+	text-align: center;
+	padding: 2em;
+}
+
+.loginButton{
+	padding: 0.5em;
+	background-color: var(--ColourMain);
+	color: var(--ColourMain-Contrast);
+	border-radius: 0.5em;
+}

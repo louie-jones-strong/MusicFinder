@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- shared common Head Logic -->
+	<%- include('Components/Head', {
+		PageData: PageData,
+		HeadData: {
+			Title: "Louie Jones-Strong",
+			Description: "Louie Jones-Strong's portfolio. I am a Brighton based hard working, creative, programmer. I work full time as a programmer at TT Odyssey and full time as machine learning student",
+			Url: "https://louie-jones-strong.github.io/",
+			Thumbnail: "https://louie-jones-strong.github.io/Public/Assets/PortfolioProject/Thumbnail.png",
+		}
+	}); %>
+
+	<!-- extra links if needed -->
+	<script src="Public/JavaScript/ApiRequestManager.js"></script>
+	<script src="Public/JavaScript/MusicFinder/Utilities.js"></script>
+	<script src="https://sdk.scdn.co/spotify-player.js"></script>
+	<script src="Public/JavaScript/MusicFinder/Components/LikeButton.js"></script>
+	<script src="Public/JavaScript/MusicFinder/Components/Track.js"></script>
+	<script src="Public/JavaScript/MusicFinder/Components/TrackInfo.js"></script>
+	<script src="Public/JavaScript/MusicFinder/Components/PlaybackControls.js"></script>
+	<script src="Public/JavaScript/MusicFinder/Components/NavSideBar.js"></script>
+	<script src="Public/JavaScript/MusicFinder/Manager.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="Public/StyleSheets/OptinalComponents/CardHolder.css">
+	<link rel="stylesheet" type="text/css" href="Public/StyleSheets/Components/PlaybackControls.css">
+	<link rel="stylesheet" type="text/css" href="Public/StyleSheets/Components/SideBar.css">
+	<link rel="stylesheet" type="text/css" href="Public/StyleSheets/Components/TrackInfo.css">
+	<link rel="stylesheet" type="text/css" href="Public/StyleSheets/Components/TrackCard.css">
+	<link rel="stylesheet" type="text/css" href="Public/StyleSheets/indexPage.css">
+</head>
+
+<body class="dark">
+
+	<div class="content background">
+		<!-- shared common header -->
+		<%- include('Components/AccessibilityHelper'); %>
+
+		<%- include('Components/Header'); %>
+		<!-- shared common header -->
+
+		<div class="glass" id="sideBar">
+			<img id="userLogo" src="Public/Assets/Images/placeholder.jpg" alt="User Logo">
+			<button onclick="" type="button">
+				<i class="material-icons">settings</i>
+			</button>
+		</div>
+
+		<div id="trackTimeline">
+
+		</div>
+
+		<div class="glass" id="playbackControls">
+			<div id="playbackControls-Buttons">
+				<button id="skipPrevious" class="material-icons" onclick="SkipPrevious()">skip_previous</button>
+				<button id="togglePlay" class="material-icons" onclick="TogglePlay()">play_arrow</button>
+				<button id="skipNext" class="material-icons" onclick="SkipNext()">skip_next</button>
+			</div>
+			<div id="playbackControls-Bar">
+				<div id="playbackControls-Bar-TimeElapsed">11:11</div>
+				<input id="playbackControls-Bar-ProgressBar" type="range" min="0" max="90" value="30">
+				<div id="playbackControls-Bar-Duration">11:11</div>
+			</div>
+		</div>
+
+		<div id="trackInfo" class="glass">
+			<div id="trackInfoImageHolder">
+				<img id="trackInfoImage" src="Public/Assets/Images/placeholder.jpg">
+			</div>
+			<div class="trackMetaData">
+				<h3 class="trackTitle" id="trackInfoTitle">Track Title</h3>
+				<div class="trackArtists" id="trackInfoArtists">
+					<a href="">Artist 1</a>,
+					<a href="">Artist 2</a>,
+					<a href="">Artist 3</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Shared common footer -->
+		<%- include('Components/Footer'); %>
+
+		<script src="Public/JavaScript/AnimateOnAppear.js"></script>
+	</div>
+
+	<!-- Shared common loader -->
+	<%- include('Components/Loader'); %>
+</body>
+</html>

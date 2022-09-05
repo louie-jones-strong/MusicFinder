@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- shared common Head Logic -->
+	<%- include('Components/Head', {
+		PageData: PageData,
+		HeadData: {
+			Title: "Louie Jones-Strong",
+			Description: "Louie Jones-Strong's portfolio. I am a Brighton based hard working, creative, programmer. I work full time as a programmer at TT Odyssey and full time as machine learning student",
+			Url: "https://louie-jones-strong.github.io/",
+			Thumbnail: "https://louie-jones-strong.github.io/Public/Assets/PortfolioProject/Thumbnail.png",
+		}
+	}); %>
+
+	<!-- extra links if needed -->
+	<script src="Public/JavaScript/MusicFinder/Utilities.js"></script>
+	<script src="Public/JavaScript/MusicFinder/Login.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="Public/StyleSheets/loginPage.css">
+</head>
+
+<body class="dark">
+
+	<div class="content background">
+
+		<div class="holder">
+			<div class="loginPopup glass neonOutline rounded">
+				<h2>Login</h2>
+				<p>To use this website you need to login.</p>
+				<button class="loginButton neonOutline" onclick="Login()">Login</button>
+			</div>
+		</div>
+
+		<!-- Shared common footer -->
+		<%- include('Components/Footer'); %>
+		<script src="Public/JavaScript/AnimateOnAppear.js"></script>
+	</div>
+
+	<!-- Shared common loader -->
+	<%- include('Components/Loader'); %>
+</body>
+</html>

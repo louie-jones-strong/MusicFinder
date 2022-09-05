@@ -1,0 +1,33 @@
+Header{
+	width: 100%;
+	z-index:1000;
+	height: 5em;
+	position: sticky;
+	top: -1px;
+
+	display: flex;
+}
+
+#headerLogo{
+	height: 5em;
+	width: 5em;
+	border-bottom-right-radius:1.5em;
+	overflow: hidden;
+}
+#headerLogo > img{
+	height: 5em;
+	width: 5em;
+}
+
+nav{
+	padding-left: 5em;
+	height: 4em;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(
+		rgba(var(--BackgroundColour-RGB), 0.6) 0%,
+		rgba(var(--BackgroundColour-RGB), 0.4) 65%,
+		rgba(var(--BackgroundColour-RGB), 0) 100%);
+}
