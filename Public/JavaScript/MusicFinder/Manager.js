@@ -101,7 +101,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
 			if (currentTrack != '')
 			{
-				var audio = new Audio('Assets/Sounds/Ding.wav');
+				var audio = new Audio('Public/Assets/Sounds/Ding.wav');
 				audio.play();
 			}
 
