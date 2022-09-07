@@ -24,14 +24,18 @@ class PlaybackControls
 		{
 			stateIcon = "play_arrow";
 		}
+		else
+		{
+			UpdateElapsedTime();
+		}
 
 		document.getElementById('togglePlay').innerHTML = stateIcon;
 	}
 
 	SetDuration(durationMs)
 	{
-		var durationSecs = durationMs / 1000
-		document.getElementById('playbackControls-Bar-ProgressBar').max = durationSecs;
+		let durationSecs = durationMs / 1000
+		document.getElementById('playbackControls-Bar-ProgressBar').max = durationMs;
 		document.getElementById('playbackControls-Bar-Duration').innerHTML = GetTimeString(durationMs);
 	}
 }
@@ -41,7 +45,7 @@ function UpdateElapsedTime()
 	var elapsedTimeMs = Date.now() - Controls.SongStartTime;
 
 	document.getElementById('playbackControls-Bar-TimeElapsed').innerHTML = GetTimeString(elapsedTimeMs);
-	document.getElementById('playbackControls-Bar-ProgressBar').value = elapsedTimeMs / 1000
+	document.getElementById('playbackControls-Bar-ProgressBar').value = elapsedTimeMs
 
 	if (!Controls.Paused)
 	{
@@ -50,14 +54,17 @@ function UpdateElapsedTime()
 }
 
 // controls
-function PreviousTrack() {
+function PreviousTrack()
+{
 	SpotifyPlayer.previousTrack();
 }
 
-function TogglePlay() {
+function TogglePlay()
+{
 	SpotifyPlayer.togglePlay();
 }
 
-function SkipNext() {
+function SkipNext()
+{
 	SpotifyPlayer.nextTrack();
 }
