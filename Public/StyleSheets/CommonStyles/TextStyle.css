@@ -76,7 +76,7 @@ h1, h2, h3, h4{
 
 /* underlines */
 abbr, u, a{
-	text-decoration-color: var(--ColourAccent);
+	text-decoration-color: var(--ColourAccent1);
 	text-decoration-thickness: 0.1em;
 
 	transition: text-decoration-color ease 0.25s;
@@ -89,7 +89,7 @@ abbr, u, a{
 
 abbr:hover, u:hover, a:hover,
 abbr:focus, u:focus, a:focus{
-	text-decoration-color: var(--ColourMain);
+	text-decoration-color: var(--ColourMain1);
 }
 
 /* Root Font Sizes + Scaling */

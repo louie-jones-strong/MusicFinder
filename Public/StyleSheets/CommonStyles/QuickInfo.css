@@ -45,13 +45,13 @@
 	border-width: 5px;
 	transform: scale(1);
 	transition: all 0.2s;
-	border-color: var(--ColourMain);
+	border-color: var(--ColourMain1);
 }
 
 .quickLinkHolder .quickInfo:hover,
 .quickLinkHolder .quickInfo:focus{
 	transform: scale(1.2);
-	border-color: var(--ColourAccent);
+	border-color: var(--ColourAccent1);
 	border-bottom-left-radius: 0.25em;
 	border-top-right-radius: 0.25em;
 }

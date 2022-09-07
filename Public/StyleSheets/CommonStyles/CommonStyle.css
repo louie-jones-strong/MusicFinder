@@ -25,21 +25,27 @@ body{
 	--InvalidColour: #FF6961;
 	--InvalidColour-Contrast: black;
 
-	--ColourMain: #0085FF;
+	--ColourMain1: #068f7f;
+	--ColourMain2: #017063;
+	--ColourMain3: #03584e;
+	--ColourMain4: #003a34;
 	--ColourMain-Contrast: black;
 
-	--ColourAccent: #FF9E00;
+	--ColourAccent1: rgb(255, 200, 0);
 	--ColourAccent-Contrast: black;
+
+
 	--BackgroundColour: rgb(var(--BackgroundColour-RGB));
 
 /* dark mode */
 	--BackgroundImageUrl: url("BackgroundDark.svg");
 
 	--BackgroundColour-RGB: 0,0,0;
-	--Colour-Text1: rgb(255, 255, 255);
-	--Colour-Text2: rgb(255, 255, 255);
-	--Colour-Text3: rgb(225, 225, 225);
-	--Colour-Text4: rgb(215, 215, 215);
+	--Colour-Text1: rgb(255, 200, 0);
+	--Colour-Text2: rgb(245, 190, 0);
+	--Colour-Text3: rgb(235, 175, 0);
+	--Colour-Text4: rgb(230, 160, 0);
+
 	--Colour-Contrast-Filter: saturate(0%) brightness(0%) invert(100%);
 }
 
@@ -59,7 +65,7 @@ body.light{
 	/* background by SVGBackgrounds.com */
 	background-attachment: fixed;
 	background-size: cover;
-	background-image: var(--BackgroundImageUrl);
+	background-color: #068f7f;
 }
 
 :target:before {
@@ -221,17 +227,17 @@ section{
 }
 
 .neonOutline{
-	border: 1px solid var(--ColourAccent);
+	border: 1px solid var(--ColourAccent1);
 	box-shadow:	0.125em 0.125em 0.25em 0 rgba(0,0,0,50%),
-				-0.125em -0.125em 0.125em 0 var(--ColourAccent),
-				0 0 3px 0 var(--ColourAccent);
+				-0.125em -0.125em 0.125em 0 var(--ColourAccent1),
+				0 0 3px 0 var(--ColourAccent1);
 }
 
 .neonOutline:hover, .neonOutline:focus{
 	box-shadow: 0.125em 0.125em 0.25em 0 rgba(0,0,0,50%),
-				0 0 2em 0 var(--ColourAccent),
-				-0.125em -0.125em 0.125em 0 var(--ColourAccent),
-				0 0 3px 0 var(--ColourAccent);
+				0 0 2em 0 var(--ColourAccent1),
+				-0.125em -0.125em 0.125em 0 var(--ColourAccent1),
+				0 0 3px 0 var(--ColourAccent1);
 }
 
 .noBorder{
@@ -367,7 +373,7 @@ td.Invalid{
 }
 
 th{
-	background-color: var(--ColourAccent);
+	background-color: var(--ColourAccent1);
 	color: var(--ColourAccent-Contrast);
 }
 
@@ -386,7 +392,7 @@ ul{
 
 ul li::before{
 	content: "\25A0";  /* Add content: \25A0 is the CSS Code/unicode for a SQUARE bullet */
-	color: var(--ColourAccent);
+	color: var(--ColourAccent1);
 	display: inline-block;
 	width: 0.75em;
 	margin-left: -0em;

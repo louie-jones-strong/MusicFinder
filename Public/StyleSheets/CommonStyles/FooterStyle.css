@@ -3,6 +3,7 @@ footer{
 	/* padding-top: 100px; */
 	overflow-x: hidden;
 	height: 2em;
+	background-color: var(--ColourMain4);
 }
 
 .footerHolder{

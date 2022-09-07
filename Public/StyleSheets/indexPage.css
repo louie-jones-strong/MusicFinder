@@ -13,7 +13,7 @@ body{
 		"header header header"
 		"sideBar trackTimeline trackInfo"
 		"sideBar trackTimeline playbackControls"
-		"footer footer playbackControls";
+		"footer footer footer";
 }
 
 
@@ -54,6 +54,7 @@ body{
 
 header{
 	grid-area: header;
+	background-color: var(--ColourMain4);
 }
 
 footer{
@@ -62,17 +63,21 @@ footer{
 
 #sideBar{
 	grid-area: sideBar;
+	background-color: var(--ColourMain3);
 }
 
 #trackTimeline{
 	grid-area: trackTimeline;
 	overflow: auto;
+	background-color: var(--ColourMain1);
 }
 
 #trackInfo{
 	grid-area: trackInfo;
+	background-color: var(--ColourMain2);
 }
 
 #playbackControls{
 	grid-area: playbackControls;
+	background-color: var(--ColourMain3);
 }

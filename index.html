@@ -133,7 +133,7 @@
 		<link rel="stylesheet" type="text/css" href="Public/StyleSheets/CommonStyles/HeaderStyle.css">
 <!-- used for light/dark mode icons -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<Header class="glass">
+<Header class="shaded">
 	<a id="headerLogo" href="/index.html">
 		<img src="Public/Assets/Logo/Logo.png" alt="Logo">
 	</a>
@@ -143,31 +143,20 @@
 </Header>
 		<!-- shared common header -->
 
-		<div class="glass" id="sideBar">
+		<div class="" id="sideBar">
 			<img id="userLogo" src="Public/Assets/Images/placeholder.jpg" alt="User Logo">
 			<button onclick="" type="button">
 				<i class="material-icons">settings</i>
 			</button>
 		</div>
 
-		<div id="trackTimeline">
+		<div id="trackTimeline" class="">
 
 		</div>
 
-		<div class="glass" id="playbackControls">
-			<div id="playbackControls-Buttons">
-				<button id="skipPrevious" class="material-icons" onclick="SkipPrevious()">skip_previous</button>
-				<button id="togglePlay" class="material-icons" onclick="TogglePlay()">play_arrow</button>
-				<button id="skipNext" class="material-icons" onclick="SkipNext()">skip_next</button>
-			</div>
-			<div id="playbackControls-Bar">
-				<div id="playbackControls-Bar-TimeElapsed">11:11</div>
-				<input id="playbackControls-Bar-ProgressBar" type="range" min="0" max="90" value="30">
-				<div id="playbackControls-Bar-Duration">11:11</div>
-			</div>
-		</div>
 
-		<div id="trackInfo" class="glass">
+
+		<div id="trackInfo" class="">
 			<div id="trackInfoImageHolder">
 				<img id="trackInfoImage" src="Public/Assets/Images/placeholder.jpg">
 			</div>
@@ -181,8 +170,22 @@
 			</div>
 		</div>
 
+		<div class="shaded" id="playbackControls">
+			<div id="playbackControls-Buttons">
+				<button id="skipPrevious" class="material-icons" onclick="SkipPrevious()">skip_previous</button>
+				<button id="togglePlay" class="material-icons" onclick="TogglePlay()">play_arrow</button>
+				<button id="skipNext" class="material-icons" onclick="SkipNext()">skip_next</button>
+				<button id="devices" class="material-icons" onclick="OpenDevicesPopup()">devices</button>
+			</div>
+			<div id="playbackControls-Bar">
+				<div id="playbackControls-Bar-TimeElapsed">11:11</div>
+				<input id="playbackControls-Bar-ProgressBar" type="range" min="0" max="90" value="30">
+				<div id="playbackControls-Bar-Duration">11:11</div>
+			</div>
+		</div>
+
 		<!-- Shared common footer -->
-		<footer class="glass">
+		<footer class="shaded">
 	<link rel="stylesheet" type="text/css" href="Public/StyleSheets/CommonStyles/FooterStyle.css">
 
 	<div class="footerHolder">
@@ -209,3 +212,4 @@
 </div>
 </body>
 </html>
+

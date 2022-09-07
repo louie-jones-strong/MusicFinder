@@ -34,7 +34,6 @@ class PlaybackControls
 
 	SetDuration(durationMs)
 	{
-		let durationSecs = durationMs / 1000
 		document.getElementById('playbackControls-Bar-ProgressBar').max = durationMs;
 		document.getElementById('playbackControls-Bar-Duration').innerHTML = GetTimeString(durationMs);
 	}

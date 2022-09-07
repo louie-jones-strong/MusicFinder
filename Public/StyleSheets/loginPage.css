@@ -13,7 +13,7 @@
 
 .loginButton{
 	padding: 0.5em;
-	background-color: var(--ColourMain);
+	background-color: var(--ColourMain1);
 	color: var(--ColourMain-Contrast);
 	border-radius: 0.5em;
 }

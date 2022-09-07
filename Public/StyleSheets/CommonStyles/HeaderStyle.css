@@ -26,8 +26,4 @@ nav{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(
-		rgba(var(--BackgroundColour-RGB), 0.6) 0%,
-		rgba(var(--BackgroundColour-RGB), 0.4) 65%,
-		rgba(var(--BackgroundColour-RGB), 0) 100%);
 }
