@@ -32,6 +32,7 @@ var CurrentTrackInfo = new TrackInfo();
 var SideBar = new NavSideBar();
 var SpotifyPlayer = null;
 var TrackList = [];
+var DeviceManager = null;
 
 
 window.onSpotifyWebPlaybackSDKReady = () => {
@@ -57,6 +58,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 			["Content-Type", "application/json"],
 			["Authorization", "Bearer "+token]
 		];
+		DeviceManager = new PlayBackDevice();
 		Put("https://api.spotify.com/v1/me/player", bodyData, headerData);
 	});
 

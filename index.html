@@ -46,6 +46,7 @@
 	<script src="Public/JavaScript/MusicFinder/Components/TrackInfo.js"></script>
 	<script src="Public/JavaScript/MusicFinder/Components/PlaybackControls.js"></script>
 	<script src="Public/JavaScript/MusicFinder/Components/NavSideBar.js"></script>
+	<script src="Public/JavaScript/MusicFinder/Components/PlayBackDevice.js"></script>
 	<script src="Public/JavaScript/MusicFinder/Manager.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="Public/StyleSheets/OptinalComponents/CardHolder.css">
@@ -175,7 +176,7 @@
 				<button id="skipPrevious" class="material-icons" onclick="SkipPrevious()">skip_previous</button>
 				<button id="togglePlay" class="material-icons" onclick="TogglePlay()">play_arrow</button>
 				<button id="skipNext" class="material-icons" onclick="SkipNext()">skip_next</button>
-				<button id="devices" class="material-icons" onclick="OpenDevicesPopup()">devices</button>
+				<button id="devices" class="material-icons" onclick="OpenDevicesPopup()">devices <div id="devicePopup">Test</div></button>
 			</div>
 			<div id="playbackControls-Bar">
 				<div id="playbackControls-Bar-TimeElapsed">11:11</div>

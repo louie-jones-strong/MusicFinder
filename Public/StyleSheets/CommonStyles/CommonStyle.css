@@ -65,7 +65,7 @@ body.light{
 	/* background by SVGBackgrounds.com */
 	background-attachment: fixed;
 	background-size: cover;
-	background-color: #068f7f;
+	background-color: var(--ColourMain1);
 }
 
 :target:before {
