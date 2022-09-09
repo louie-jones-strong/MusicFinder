@@ -44,8 +44,18 @@ body{
 
 #devicePopup{
 	position: absolute;
-	bottom: 1.25em;
-	background-color: var(--ColourMain4);
+	bottom: 2em;
+	background-color: var(--ColourMain3);
 	padding: 0.5em;
 	border-radius: 0.5em;
+	border: solid var(--Colour-Text4) 1px;
+}
+
+.playBackButton{
+	border-radius: 0.5em;
+	padding: 0.2em;
+	margin: 0.25em;
+	background-color: var(--ColourMain2);
+	color: var(--Colour-Text3);
+	border: solid var(--Colour-Text4) 2px;
 }

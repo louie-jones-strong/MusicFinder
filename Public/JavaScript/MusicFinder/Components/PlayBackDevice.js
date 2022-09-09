@@ -4,8 +4,8 @@ class PlayBackDevice
 	constructor()
 	{
 		this.DeviceList = [];
-		this.CurrentDevice = "";
 		this.UpdateDevices();
+		this.PopupOpen = false;
 	}
 
 	UpdateDevices()
@@ -40,5 +40,13 @@ class PlayBackDevice
 
 function OpenDevicesPopup()
 {
-
+	if (DeviceManager.PopupOpen)
+	{
+		document.getElementById('devicePopup').classList.add("hide");
+	}
+	else
+	{
+		document.getElementById('devicePopup').classList.remove("hide");
+	}
+	DeviceManager.PopupOpen = !DeviceManager.PopupOpen;
 }
